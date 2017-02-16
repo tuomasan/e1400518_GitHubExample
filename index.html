@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>REST JPA example with MAVEN</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="id01"></div>
+
+<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "materials";
+
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var myArr = JSON.parse(this.responseText);
+        myFunction(myArr);
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(arr) {
+    var out = "<select id=\"materials\">";
+    var i;
+    for(i = 0; i < arr.length; i++) {
+    	out += "<option name=\""+ arr[i].id +"\">" + arr[i].name + "</option>";
+    }
+    out += "</select>";
+    console.log(out);
+    document.getElementById("id01").innerHTML = out;
+}
+
+function restJson(){
+	var material ={};
+	material.code = document.getElementById("txt1").value;
+	material.name = document.getElementById("txt2").value;
+	console.log(material);
+    $.ajax({
+        url: '/insertMaterial',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(material),
+        dataType: 'json'
+    });	
+}
+</script>
+<hr>
+
+Code<input type="text" id="txt1" name="code"><br>
+Name<input type="text" id="txt2" name="name">
+<button onclick="restJson()">Insert new material</button>
+</body>
+</html>
