@@ -6,6 +6,7 @@ package view;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /*
  * Run the application run-run as application by selecting this class
@@ -17,6 +18,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 
  * taskkill /f /im javaw.exe
  */
+@ComponentScan({"controller"})
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
