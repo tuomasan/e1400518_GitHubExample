@@ -15,6 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * CREATE TABLE IF NOT EXISTS `MATERIAL` (`id` int(11) NOT NULL,  `code` varchar(100) DEFAULT NULL,  `name` varchar(100) DEFAULT NULL,  `price` int(11) DEFAULT NULL) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
  * INSERT INTO `MATERIAL` (`id`, `code`, `name`, `price`) VALUES (1, 'ABCD', 'Laite ABCD', 1222);
  * 
+ * taskkill /f /im javaw.exe
  */
 @SpringBootApplication
 public class Application {
