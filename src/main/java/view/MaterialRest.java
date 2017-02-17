@@ -110,7 +110,6 @@ public class MaterialRest {
         JsonObject myObject = jelement.getAsJsonObject();	
 	    material.setCode(myObject.get("code").getAsString());
 	    material.setName(myObject.get("name").getAsString());
-        material.setPrice(myObject.get("price").getAsInt());	    
 	    dao.persist(material);
 	    return material;
     }

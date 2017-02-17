@@ -36,7 +36,6 @@ function restJson(){
 	var material ={};
 	material.code = document.getElementById("txt1").value;
 	material.name = document.getElementById("txt2").value;
-	material.price = document.getElementById("txt3").value;
 	console.log(material);
     $.ajax({
         url: '/insertMaterial',
@@ -51,7 +50,6 @@ function restJson(){
 <h2>Enter new material</h2>
 Code<input type="text" id="txt1" name="code"><br>
 Name<input type="text" id="txt2" name="name"><br>
-Price<input type="text" id="txt3" name="price">
 <button onclick="restJson()">Insert new material</button>
 </body>
 </html>
