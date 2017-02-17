@@ -7,6 +7,7 @@ package view;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.bind.annotation.RestController;
 
 /*
  * Run the application run-run as application by selecting this class
@@ -18,6 +19,7 @@ import org.springframework.context.annotation.ComponentScan;
  * 
  * taskkill /f /im javaw.exe
  */
+//use componentscan if your @RestController locates in another package
 @ComponentScan({"controller"})
 @SpringBootApplication
 public class Application {
