@@ -29,23 +29,27 @@ public class MaterialRest {
 	 * The root will show the REST apis available
 	 */
     @RequestMapping("/")
-    public String api(@RequestParam(value="name", defaultValue="World") String name) {
-        return "<a href=\"/test\">/test</a><br><a href=\"/material?id=1\">/material?id=1</a><br><a href=\"/materials\">/materials</a><br><a href=\"index.html\">index.html</a>";
+    public String api(@RequestParam(value="name", defaultValue="Default") String name) {
+        return "<a href=\"/test\">/test</a><br>"
+        		+ "<a href=\"/material?id=1\">/material?id=1</a><br>"
+        		+ "<a href=\"/materials\">/materials</a><br>"
+        		+ "<a href=\"index.html\">index.html</a><br>"
+        		+ "<a href=\"getmaterialbyname.html\">getmaterialbyname.html</a>";
     }
 	
     /*
      * Just echo some simple JSON
      */
     @RequestMapping("/test")
-    public String hello(@RequestParam(value="name", defaultValue="World") String name) {
-        return "{\"id\":\"hello\"}";
+    public String hello(@RequestParam(value="name", defaultValue="Default") String name) {
+        return "{\"id\":\"Is this my home?\"}";
     }
     
     /*
      * to avoid cross scripting error we load html-file here
      */
     @RequestMapping("/index.html")
-    public String index(@RequestParam(value="name", defaultValue="World") String name) {
+    public String index(@RequestParam(value="name", defaultValue="Default") String name) {
 		StringBuffer sb = new StringBuffer();
 		try{
 			Scanner in = new Scanner(new FileReader("index.html"));
@@ -112,5 +116,13 @@ public class MaterialRest {
 	    material.setName(myObject.get("name").getAsString());
 	    dao.persist(material);
 	    return material;
+    }
+    
+    //retrieve material based on name
+    @RequestMapping("/getmaterialbyname")
+    public Material getMaterialByName(@RequestParam(value="json", defaultValue="") String name) {
+        MaterialDao dao = new MaterialDao();
+        dao.init();
+        return dao.getDao();
     }
 }

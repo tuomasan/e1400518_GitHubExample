@@ -3,9 +3,9 @@
 	<persistence-unit name="w9" transaction-type="RESOURCE_LOCAL">
 		<class>model.Material</class>
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://mysql.cc.puv.fi:3306/tka_2016"/>
-			<property name="javax.persistence.jdbc.user" value=""/>
-			<property name="javax.persistence.jdbc.password" value=""/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/e1400518_tilaus"/>
+			<property name="javax.persistence.jdbc.user" value="e1400518"/>
+			<property name="javax.persistence.jdbc.password" value="PsBjUtZujyPP"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
 		</properties>
 	</persistence-unit>

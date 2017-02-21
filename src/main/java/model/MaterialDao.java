@@ -24,6 +24,7 @@ public class MaterialDao {
 		entityManager = Persistence.createEntityManagerFactory("w9").createEntityManager();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Material> getDaos(){
 		entityManager.getTransaction().begin();
 		Query query = entityManager.createNamedQuery("Material.findAll");

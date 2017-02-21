@@ -10,7 +10,7 @@
 
 <script>
 var xmlhttp = new XMLHttpRequest();
-var url = "materials";
+var url = "getmaterialbyname";
 
 xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -21,25 +21,12 @@ xmlhttp.onreadystatechange = function() {
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 
-function myFunction(arr) {
-    var out = "<select id=\"materials\">";
-    var i;
-    for(i = 0; i < arr.length; i++) {
-    	out += "<option name=\""+ arr[i].id +"\">" + arr[i].name + "</option>";
-    }
-    out += "</select>";
-    console.log(out);
-    document.getElementById("id01").innerHTML = out;
-}
-
 function restJson(){
 	var material ={};
 	material.code = document.getElementById("txt1").value;
-	material.name = document.getElementById("txt2").value;
-	material.name = document.getElementById("txt3").value;
 	console.log(material);
     $.ajax({
-        url: '/insertMaterial',
+        url: '/getmaterialbyname',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(material),
@@ -48,10 +35,8 @@ function restJson(){
 }
 </script>
 <hr>
-<h2>Enter new material</h2>
-Code<input type="text" id="txt1" name="code"><br>
-Name<input type="text" id="txt2" name="name"><br>
-Price<input type="text" id="txt3" name="price"><br>
-<button onclick="restJson()">Insert new material</button>
+<h2>Enter material name</h2>
+Material<input type="text" id="txt1" name="material"><br>
+<button onclick="restJson()">Search</button>
 </body>
 </html>
